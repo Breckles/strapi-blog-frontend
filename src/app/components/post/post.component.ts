@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
-import ARTICLE_QUERY from '../apollo/queries/article/article';
 import { ActivatedRoute } from '@angular/router';
+import { Apollo } from 'apollo-angular';
 import { Subscription } from 'rxjs';
+import ARTICLE_QUERY from 'src/app/apollo/queries/article/article';
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss'],
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.scss'],
 })
-export class ArticleComponent implements OnInit {
+export class PostComponent implements OnInit {
   data: any = {};
   loading = true;
   errors: any;
