@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { GraphQLModule } from './graphql.module';
-import { MarkdownModule } from 'ngx-markdown';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,13 +20,7 @@ import { CategoryComponent } from './category/category.component';
     ArticleComponent,
     CategoryComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    GraphQLModule,
-    MarkdownModule.forRoot(),
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, GraphQLModule],
   providers: [],
   bootstrap: [AppComponent],
 })
