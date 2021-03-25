@@ -1,60 +1,13 @@
-<div class="uk-section">
-  <div class="uk-container uk-container-large">
-    <h1>Strapi blog</h1>
-
-    <div class="uk-child-width-1-2"
-         uk-grid>
-      <div>
-        <a routerLink="/posts/{{ post.id }}"
-           routerLinkActive="active"
-           *ngFor="let post of leftPosts"
-           class="uk-link-reset">
-          <div class="uk-card uk-card-muted">
-            <div *ngIf="post.image"
-                 class="uk-card-media-top">
-              <img src="http://localhost:1337{{ post.image.url }}"
-                   alt=""
-                   height="100" />
-            </div>
-            <div class="uk-card-body">
-              <p id="category"
-                 *ngIf="post.category"
-                 class="uk-text-uppercase">
-                {{ post.category.name }}
-              </p>
-              <p id="title"
-                 class="uk-text-large">{{ post.title }}</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div>
-        <div class="uk-child-width-1-2@m uk-grid-match"
-             uk-grid>
-          <a routerLink="/posts/{{ post.id }}"
-             routerLinkActive="active"
-             *ngFor="let post of rightPosts"
-             class="uk-link-reset">
-            <div class="uk-card uk-card-muted">
-              <div *ngIf="post.image"
-                   class="uk-card-media-top">
-                <img src="http://localhost:1337{{ post.image.url }}"
-                     alt=""
-                     height="100" />
-              </div>
-              <div class="uk-card-body">
-                <p id="category"
-                   *ngIf="post.category"
-                   class="uk-text-uppercase">
-                  {{ post.category.name }}
-                </p>
-                <p id="title"
-                   class="uk-text-large">{{ post.title }}</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+<div class="posts-component-wrapper">
+  <a routerLink="/posts/{{ post.id }}"
+     *ngFor="let post of posts">
+    <div *ngIf="post.image">
+      <img src="http://localhost:1337{{ post.image.url }}"
+           alt=""
+           height="100" />
     </div>
-  </div>
+    <p id="title">
+      {{ post.title }}
+    </p>
+  </a>
 </div>

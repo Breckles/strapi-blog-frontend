@@ -10,7 +10,7 @@ import POST_QUERY from 'src/app/apollo/queries/post/post';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  data: any = {};
+  post: any;
   loading = true;
   errors: any;
 
@@ -27,9 +27,11 @@ export class PostComponent implements OnInit {
         },
       })
       .valueChanges.subscribe((result) => {
-        this.data = result.data;
+        let data = result.data as any;
+        this.post = data.post;
         this.loading = result.loading;
         this.errors = result.errors;
+        console.log(this.post.content);
       });
   }
   ngOnDestroy() {

@@ -9,12 +9,9 @@ import POSTS_QUERY from 'src/app/apollo/queries/post/posts';
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-  data: any = {};
+  posts: any[] = [];
   loading = true;
   errors: any;
-  leftPostsCount: any;
-  leftPosts!: any[];
-  rightPosts!: any[];
 
   private queryPosts!: Subscription;
 
@@ -26,13 +23,8 @@ export class PostsComponent implements OnInit {
         query: POSTS_QUERY,
       })
       .valueChanges.subscribe((result) => {
-        this.data = result.data;
-        this.leftPostsCount = Math.ceil(this.data.posts.length / 5);
-        this.leftPosts = this.data.posts.slice(0, this.leftPostsCount);
-        this.rightPosts = this.data.posts.slice(
-          this.leftPostsCount,
-          this.data.posts.length
-        );
+        const data = result.data as any;
+        this.posts = data.posts;
         this.loading = result.loading;
         this.errors = result.errors;
         console.log(result);
