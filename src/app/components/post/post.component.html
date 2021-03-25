@@ -1,15 +1,16 @@
 <div id="banner"
      class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding"
-     [style.background-image]="'url(http://localhost:1337' + data.article.image.url + ')'
+     *ngIf="data.post"
+     [style.background-image]="'url(http://localhost:1337' + data.post.image.url + ')'
   "
      uk-img>
-  <h1>{{ data.article.title }}</h1>
+  <h1>{{ data.post.title }}</h1>
 </div>
 
 <div class="uk-section">
   <div class="uk-container uk-container-small">
     <p>
-      {{ data.article.content }}
+      {{ data.post.content }}
     </p>
     <p></p>
   </div>

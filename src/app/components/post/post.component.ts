@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Apollo } from 'apollo-angular';
 import { Subscription } from 'rxjs';
-import ARTICLE_QUERY from 'src/app/apollo/queries/article/article';
+import POST_QUERY from 'src/app/apollo/queries/post/post';
 
 @Component({
   selector: 'app-post',
@@ -14,14 +14,14 @@ export class PostComponent implements OnInit {
   loading = true;
   errors: any;
 
-  private queryArticle!: Subscription;
+  private queryPost!: Subscription;
 
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.queryArticle = this.apollo
+    this.queryPost = this.apollo
       .watchQuery({
-        query: ARTICLE_QUERY,
+        query: POST_QUERY,
         variables: {
           id: this.route.snapshot.paramMap.get('id'),
         },
@@ -33,6 +33,6 @@ export class PostComponent implements OnInit {
       });
   }
   ngOnDestroy() {
-    this.queryArticle.unsubscribe();
+    this.queryPost.unsubscribe();
   }
 }

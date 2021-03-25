@@ -5,25 +5,25 @@
     <div class="uk-child-width-1-2"
          uk-grid>
       <div>
-        <a routerLink="/posts/{{ article.id }}"
+        <a routerLink="/posts/{{ post.id }}"
            routerLinkActive="active"
-           *ngFor="let article of leftArticles"
+           *ngFor="let post of leftPosts"
            class="uk-link-reset">
           <div class="uk-card uk-card-muted">
-            <div *ngIf="article.image"
+            <div *ngIf="post.image"
                  class="uk-card-media-top">
-              <img src="http://localhost:1337{{ article.image.url }}"
+              <img src="http://localhost:1337{{ post.image.url }}"
                    alt=""
                    height="100" />
             </div>
             <div class="uk-card-body">
               <p id="category"
-                 *ngIf="article.category"
+                 *ngIf="post.category"
                  class="uk-text-uppercase">
-                {{ article.category.name }}
+                {{ post.category.name }}
               </p>
               <p id="title"
-                 class="uk-text-large">{{ article.title }}</p>
+                 class="uk-text-large">{{ post.title }}</p>
             </div>
           </div>
         </a>
@@ -31,25 +31,25 @@
       <div>
         <div class="uk-child-width-1-2@m uk-grid-match"
              uk-grid>
-          <a routerLink="/posts/{{ article.id }}"
+          <a routerLink="/posts/{{ post.id }}"
              routerLinkActive="active"
-             *ngFor="let article of rightArticles"
+             *ngFor="let post of rightPosts"
              class="uk-link-reset">
             <div class="uk-card uk-card-muted">
-              <div *ngIf="article.image"
+              <div *ngIf="post.image"
                    class="uk-card-media-top">
-                <img src="http://localhost:1337{{ article.image.url }}"
+                <img src="http://localhost:1337{{ post.image.url }}"
                      alt=""
                      height="100" />
               </div>
               <div class="uk-card-body">
                 <p id="category"
-                   *ngIf="article.category"
+                   *ngIf="post.category"
                    class="uk-text-uppercase">
-                  {{ article.category.name }}
+                  {{ post.category.name }}
                 </p>
                 <p id="title"
-                   class="uk-text-large">{{ article.title }}</p>
+                   class="uk-text-large">{{ post.title }}</p>
               </div>
             </div>
           </a>
