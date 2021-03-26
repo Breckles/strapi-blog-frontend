@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { GraphQLModule } from './graphql.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,7 +25,13 @@ import { PostComponent } from './components/post/post.component';
     PostsComponent,
     PostComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, GraphQLModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    GraphQLModule,
+    MarkdownModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

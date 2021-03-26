@@ -1,12 +1,15 @@
 <ng-container *ngIf="post">
-  <section class="post-component-wrapper">
+  <article class="post-component-wrapper">
     <div class="title-image-container">
       <img src="http://localhost:1337{{post.image.url}}"
            alt="some image">
     </div>
 
     <h1>{{ post.title }}</h1>
-    <p [innerHTML]="post.content">
+    <p>
+      <markdown>
+        {{post.content}}
+      </markdown>
     </p>
-  </section>
+  </article>
 </ng-container>
