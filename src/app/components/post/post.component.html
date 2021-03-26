@@ -1,15 +1,26 @@
 <ng-container *ngIf="post">
+
   <article class="post-component-wrapper">
+
     <div class="title-image-container">
-      <img src="http://localhost:1337{{post.image.url}}"
-           alt="some image">
+      <picture>
+        <source media="(max-width: 500px)"
+                srcset="http://localhost:1337{{post.image.formats['small'].url}}">
+        <source media="(max-width: 750px)"
+                srcset="http://localhost:1337{{post.image.formats['medium'].url}}">
+        <source media="(max-width: 1000px)"
+                srcset="http://localhost:1337{{post.image.formats['large'].url}}">
+        <img src="http://localhost:1337{{post.image.url}}"
+             [alt]="post.image.alternativeText">
+      </picture>
     </div>
 
     <h1>{{ post.title }}</h1>
-    <p>
-      <markdown>
-        {{post.content}}
-      </markdown>
-    </p>
+
+    <markdown>
+      {{post.content}}
+    </markdown>
+
   </article>
+
 </ng-container>

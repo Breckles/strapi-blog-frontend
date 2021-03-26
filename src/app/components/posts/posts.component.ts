@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import { ApolloQueryResult } from '@apollo/client/core';
 import { Subscription } from 'rxjs';
-import POSTS_QUERY from 'src/app/apollo/queries/post/posts';
+import {
+  AllPostsPartialsGQL,
+  AllPostsPartialsResponse,
+} from 'src/app/apollo/queries/post/all-posts-gql.service';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-posts',
@@ -9,26 +13,24 @@ import POSTS_QUERY from 'src/app/apollo/queries/post/posts';
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-  posts: any[] = [];
+  posts: Partial<Post>[] = [];
   loading = true;
   errors: any;
 
   private queryPosts!: Subscription;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private allPostsQuery: AllPostsPartialsGQL) {}
 
   ngOnInit() {
-    this.queryPosts = this.apollo
-      .watchQuery({
-        query: POSTS_QUERY,
-      })
-      .valueChanges.subscribe((result) => {
-        const data = result.data as any;
-        this.posts = data.posts;
-        this.loading = result.loading;
-        this.errors = result.errors;
-        console.log(result);
-      });
+    this.queryPosts = this.allPostsQuery
+      .watch()
+      .valueChanges.subscribe(
+        (result: ApolloQueryResult<AllPostsPartialsResponse>) => {
+          this.posts = result.data.posts;
+          this.loading = result.loading;
+          this.errors = result.errors;
+        }
+      );
   }
 
   ngOnDestroy() {
