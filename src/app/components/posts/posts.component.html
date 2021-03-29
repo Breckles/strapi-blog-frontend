@@ -2,9 +2,16 @@
   <a routerLink="/posts/{{ post.id }}"
      *ngFor="let post of posts">
     <div *ngIf="post.image">
-      <img src="http://localhost:1337{{ post.image.url }}"
-           alt=""
-           height="100" />
+      <picture>
+        <source media="(max-width: 500px)"
+                srcset="http://localhost:1337{{post.image.formats['small'].url}}">
+        <source media="(max-width: 750px)"
+                srcset="http://localhost:1337{{post.image.formats['medium'].url}}">
+        <source media="(max-width: 1000px)"
+                srcset="http://localhost:1337{{post.image.formats['large'].url}}">
+        <img src="http://localhost:1337{{post.image.url}}"
+             [alt]="post.image.alternativeText">
+      </picture>
     </div>
     <p id="title">
       {{ post.title }}
