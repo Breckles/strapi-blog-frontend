@@ -22,6 +22,7 @@ export class PostsForPostsGQL extends Query<AllPostsPartialsResponse> {
           alternativeText
           formats
         }
+        published_on
       }
     }
   `;

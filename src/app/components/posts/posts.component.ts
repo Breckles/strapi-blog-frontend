@@ -29,6 +29,7 @@ export class PostsComponent implements OnInit {
           this.posts = result.data.posts;
           this.loading = result.loading;
           this.errors = result.errors;
+          console.log(this.posts[1]);
         }
       );
   }

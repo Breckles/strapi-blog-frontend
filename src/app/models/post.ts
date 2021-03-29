@@ -6,4 +6,5 @@ export interface Post {
   author: string;
   content: string;
   image: Image;
+  published_on: string;
 }
