@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApolloQueryResult } from '@apollo/client/core';
 import { Subscription } from 'rxjs';
 import {
-  AllPostsPartialsGQL,
+  PostsForPostsGQL,
   AllPostsPartialsResponse,
-} from 'src/app/apollo/queries/post/all-posts-gql.service';
+} from 'src/app/apollo/queries/post/posts-for-posts-gql.service';
 import { Post } from 'src/app/models/post';
 
 @Component({
@@ -19,7 +19,7 @@ export class PostsComponent implements OnInit {
 
   private queryPosts!: Subscription;
 
-  constructor(private allPostsQuery: AllPostsPartialsGQL) {}
+  constructor(private allPostsQuery: PostsForPostsGQL) {}
 
   ngOnInit() {
     this.queryPosts = this.allPostsQuery

@@ -10,7 +10,7 @@ export interface SinglePostResponse {
 @Injectable({
   providedIn: 'root',
 })
-export class SinglePostGQL extends Query<SinglePostResponse> {
+export class PostforPostGQL extends Query<SinglePostResponse> {
   document = gql`
     query Posts($id: ID!) {
       post(id: $id) {

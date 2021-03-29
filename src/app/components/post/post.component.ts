@@ -4,9 +4,9 @@ import { ApolloQueryResult } from '@apollo/client/core';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
-  SinglePostGQL,
+  PostforPostGQL,
   SinglePostResponse,
-} from 'src/app/apollo/queries/post/single-post-gql.service';
+} from 'src/app/apollo/queries/post/post-for-post-gql.service';
 import { Post } from 'src/app/models/post';
 
 @Component({
@@ -22,7 +22,7 @@ export class PostComponent implements OnInit {
   private queryPost!: Subscription;
 
   constructor(
-    private singlePostQuery: SinglePostGQL,
+    private singlePostQuery: PostforPostGQL,
     private route: ActivatedRoute
   ) {}
 

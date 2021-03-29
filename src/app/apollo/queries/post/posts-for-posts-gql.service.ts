@@ -10,7 +10,7 @@ export interface AllPostsPartialsResponse {
 @Injectable({
   providedIn: 'root',
 })
-export class AllPostsPartialsGQL extends Query<AllPostsPartialsResponse> {
+export class PostsForPostsGQL extends Query<AllPostsPartialsResponse> {
   document = gql`
     query Posts {
       posts {
