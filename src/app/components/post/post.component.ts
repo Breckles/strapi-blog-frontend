@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApolloQueryResult } from '@apollo/client/core';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 import {
   PostforPostGQL,
   SinglePostResponse,

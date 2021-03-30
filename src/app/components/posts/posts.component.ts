@@ -23,15 +23,13 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.queryPosts = this.allPostsQuery
-      .watch()
-      .valueChanges.subscribe(
-        (result: ApolloQueryResult<AllPostsPartialsResponse>) => {
-          this.posts = result.data.posts;
-          this.loading = result.loading;
-          this.errors = result.errors;
-          console.log(this.posts[1]);
-        }
-      );
+      .fetch()
+      .subscribe((result: ApolloQueryResult<AllPostsPartialsResponse>) => {
+        this.posts = result.data.posts;
+        this.loading = result.loading;
+        this.errors = result.errors;
+        console.log(this.posts[1]);
+      });
   }
 
   ngOnDestroy() {

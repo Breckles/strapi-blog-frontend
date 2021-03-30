@@ -2,24 +2,29 @@
 
   <article class="post-component-wrapper">
 
-    <div class="title-image-container">
-      <picture>
-        <source media="(max-width: 500px)"
-                srcset="http://localhost:1337{{post.image.formats['small'].url}}">
-        <source media="(max-width: 750px)"
-                srcset="http://localhost:1337{{post.image.formats['medium'].url}}">
-        <source media="(max-width: 1000px)"
-                srcset="http://localhost:1337{{post.image.formats['large'].url}}">
-        <img src="http://localhost:1337{{post.image.url}}"
-             [alt]="post.image.alternativeText">
-      </picture>
-    </div>
+    <picture class="title-image-container">
+      <source media="(max-width: 500px)"
+              srcset="http://192.168.2.16:1337{{post.image.formats['small'].url}}">
+      <source media="(max-width: 750px)"
+              srcset="http://192.168.2.16:1337{{post.image.formats['medium'].url}}">
+      <source media="(max-width: 1000px)"
+              srcset="http://192.168.2.16:1337{{post.image.formats['large'].url}}">
+      <img src="http://192.168.2.16:1337{{post.image.url}}"
+           [alt]="post.image.alternativeText">
+    </picture>
 
     <h1>{{ post.title }}</h1>
 
-    <markdown>
-      {{post.content}}
-    </markdown>
+    <section class="post-info">
+      <div>{{ post.author }}</div>
+      <div>{{ post.published_on | date:'fullDate' }}</div>
+    </section>
+
+    <section class="content">
+      <markdown>
+        {{post.content}}
+      </markdown>
+    </section>
 
   </article>
 

@@ -1,0 +1,36 @@
+<section class="post-card-wrapper">
+
+  <picture class="title-image-container">
+    <source *ngIf="post.image!.formats['small']"
+            media="(max-width: 500px)"
+            srcset="http://192.168.2.16:1337{{post.image!.formats['small'].url}}">
+    <source *ngIf="post.image!.formats['medium']"
+            media="(max-width: 750px)"
+            srcset="http://192.168.2.16:1337{{post.image!.formats['medium'].url}}">
+    <source *ngIf="post.image!.formats['large']"
+            media="(max-width: 1000px)"
+            srcset="http://192.168.2.16:1337{{post.image!.formats['large'].url}}">
+    <img src="http://192.168.2.16:1337{{post.image!.url}}"
+         [alt]="post.image!.alternativeText">
+  </picture>
+
+  <div class="post-info">
+
+    <h2 class="title">
+      {{ post.title }}
+    </h2>
+    |
+    <div class="post-additional-info">
+
+      <div class="post-author"><span class="post-author-label">Written by:</span> {{post.author}}</div>
+
+      <time class="post-publish-date"
+            [dateTime]="post.published_on">
+        {{post.published_on | date:'fullDate'}}
+      </time>
+
+    </div>
+
+  </div>
+
+</section>

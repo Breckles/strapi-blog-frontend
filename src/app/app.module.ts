@@ -15,6 +15,7 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
+import { PostCardComponent } from './components/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PostComponent } from './components/post/post.component';
     HeaderComponent,
     PostsComponent,
     PostComponent,
+    PostCardComponent,
   ],
   imports: [
     BrowserModule,
