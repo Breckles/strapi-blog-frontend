@@ -4,12 +4,15 @@
   --slate-green: #415A54;
   --dark-white: #faf7ff;
 
-  --app-text-color: var(--slate);
+  --app-text-color: var(--dark-white);
+  --app-background-color: var(--slate);
 
-  --header-bg-color: var(--slate);
   --header-text-color: var(--dark-white);
+  --header-bg-color: var(--slate);
 
   --post-card-text-color: var(--dark-white);
+
+  --post-title-bg-color: var(--slate-brown);
 
   --font-family: 'Ubuntu', sans-serif;
 }

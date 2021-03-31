@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 section.post-card-wrapper {
   position: relative;
   width: 100%;
@@ -18,33 +22,35 @@ picture.title-image-container {
   }
 }
 
-div.post-info {
+div.post-title-container {
   position: absolute;
   bottom: 0;
-  display: flex;
-  align-items: center;
   width: 100%;
   padding: 10px;
 
   background-color: rgba($color: black, $alpha: 0.5);
   color: var(--post-card-text-color);
 
-  h2.title {
-    padding-right: 10px;
-  }
+  h2.title {}
 
   .post-additional-info {
-    padding-left: 10px;
+    display: flex;
+    align-items: baseline;
 
     .post-author {
+      padding-right: 5px;
 
       span.post-author-label {
+        padding-right: 5px;
+
         font-size: 1.2rem;
         font-style: italic;
       }
     }
 
-    time.post-publish-date {
+    time.post-published-on {
+      padding-left: 5px;
+
       font-size: 1.2rem;
       font-style: italic;
     }

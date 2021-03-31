@@ -14,17 +14,16 @@
          [alt]="post.image!.alternativeText">
   </picture>
 
-  <div class="post-info">
+  <div class="post-title-container">
 
     <h2 class="title">
       {{ post.title }}
     </h2>
-    |
     <div class="post-additional-info">
 
-      <div class="post-author"><span class="post-author-label">Written by:</span> {{post.author}}</div>
-
-      <time class="post-publish-date"
+      <div class="post-author"><span class="post-author-label">Written by: </span>{{post.author}}</div>
+      |
+      <time class="post-published-on"
             [dateTime]="post.published_on">
         {{post.published_on | date:'fullDate'}}
       </time>

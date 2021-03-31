@@ -13,17 +13,25 @@
            [alt]="post.image.alternativeText">
     </picture>
 
-    <h1>{{ post.title }}</h1>
 
-    <section class="post-info">
-      <div>{{ post.author }}</div>
-      <div>{{ post.published_on | date:'fullDate' }}</div>
+    <section class="post-title-container">
+      <h1 class="post-title">{{ post.title }}</h1>
+      <div class="post-additional-info">
+        <div class="post-author"><span class="post-author-label">Written by: </span>{{ post.author }}</div>
+        |
+        <div class="post-published-on">{{ post.published_on | date:'fullDate' }}</div>
+      </div>
     </section>
 
-    <section class="content">
+    <!-- <section class="content">
       <markdown>
         {{post.content}}
       </markdown>
+    </section> -->
+
+    <section class="content"
+             markdown>
+      {{post.content}}
     </section>
 
   </article>

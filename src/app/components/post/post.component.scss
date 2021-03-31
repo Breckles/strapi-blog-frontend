@@ -14,3 +14,82 @@ picture.title-image-container {
     height: 100%;
   }
 }
+
+section {
+  padding: 10px;
+}
+
+section.post-title-container {
+  position: relative;
+  // background-color: var(--post-title-bg-color);
+  // background-image: url('http://192.168.2.16:1337/uploads/wood_591c4de46d.jpg');
+
+  h1.post-title {
+    position: relative;
+    z-index: 2;
+  }
+
+  .post-additional-info {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: baseline;
+
+    .post-author {
+      padding-right: 5px;
+
+      span.post-author-label {
+        padding-right: 5px;
+
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+    }
+
+    .post-published-on {
+      padding-left: 5px;
+
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+  }
+
+}
+
+section.post-title-container::after {
+  // This is meant to act as the element's background. Doing it this way allows
+  // control of background opacity
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--post-title-bg-color);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+section.content {
+  width: 100%;
+  height: 100%;
+
+  // markdown {
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+}
+
+// ::ng-deep is deprecated, but there are no alternatives for styling shadowDOM
+// content. As per Angular documentation, ::ng-deep is still the preferred
+// choice from the options remaining (Angular Docs:
+// https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep,
+// GitHub thread with more info on possible future options:
+// https://github.com/angular/angular/issues/27614)
+:host ::ng-deep p {
+  padding-bottom: 1rem;
+
+  line-height: 29px;
+  text-indent: 3rem;
+}

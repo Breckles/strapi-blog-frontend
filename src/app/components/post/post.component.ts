@@ -27,15 +27,14 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.queryPost = this.singlePostQuery
-      .watch({ id: this.route.snapshot.paramMap.get('id') })
-      .valueChanges.subscribe(
-        (result: ApolloQueryResult<SinglePostResponse>) => {
-          this.post = result.data.post;
-          this.loading = result.loading;
-          this.errors = result.errors;
-        }
-      );
+      .fetch({ id: this.route.snapshot.paramMap.get('id') })
+      .subscribe((result: ApolloQueryResult<SinglePostResponse>) => {
+        this.post = result.data.post;
+        this.loading = result.loading;
+        this.errors = result.errors;
+      });
   }
+
   ngOnDestroy() {
     this.queryPost.unsubscribe();
   }
