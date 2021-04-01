@@ -1,1 +1,13 @@
+.home-page-wrapper {
+  width: 100%;
+  height: 100%;
+}
 
+app-back-to-top-button {
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}

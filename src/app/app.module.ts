@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
+import { BackToTopButtonComponent } from './components/shared/back-to-top-button/back-to-top-button.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PostCardComponent } from './components/post-card/post-card.component';
     PostsComponent,
     PostComponent,
     PostCardComponent,
+    BackToTopButtonComponent,
   ],
   imports: [
     BrowserModule,
