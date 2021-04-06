@@ -72,7 +72,8 @@ section.post-title-container::after {
 
 section.content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
   margin: min(5vw, 60px) 0;
