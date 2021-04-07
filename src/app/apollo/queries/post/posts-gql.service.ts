@@ -3,14 +3,14 @@ import { Query } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Post } from 'src/app/models/post';
 
-export interface AllPostsPartialsResponse {
+export interface PostsGQLResponse {
   posts: Partial<Post>[];
 }
 
 @Injectable({
   providedIn: 'root',
 })
-export class PostsForPostsGQL extends Query<AllPostsPartialsResponse> {
+export class PostsGQL extends Query<PostsGQLResponse> {
   document = gql`
     query Posts {
       posts {

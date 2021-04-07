@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { PostsGQL } from 'src/app/apollo/queries/post/posts-gql.service';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-home-page',
@@ -6,7 +8,21 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  constructor() {}
+  loading = true;
+  posts!: Partial<Post>[];
 
-  ngOnInit(): void {}
+  constructor(private postsGQL: PostsGQL) {}
+
+  ngOnInit(): void {
+    this.postsGQL
+      .fetch()
+      .toPromise()
+      .then((response) => {
+        this.posts = response.data.posts;
+        this.loading = response.loading;
+      })
+      .catch((error) => {
+        console.log('error has occured');
+      });
+  }
 }

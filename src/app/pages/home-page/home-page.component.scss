@@ -3,6 +3,49 @@
   height: 100%;
 }
 
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 min(10px, 10%);
+  margin-top: 20px;
+
+  app-post-card {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .latest-post,
+  ul.posts {
+    width: 100%;
+  }
+
+  .latest-post {
+    margin-bottom: 20px;
+    height: 60vh;
+
+    app-post-card {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  ul.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+    // grid-template-columns: repeat(2, minmax(800px, 1fr));
+    gap: 10px;
+
+    list-style-type: none;
+
+    li.post {}
+  }
+}
+
+
+
+
 app-back-to-top-button {
   position: fixed;
   right: 2%;

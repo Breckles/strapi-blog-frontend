@@ -1,4 +1,24 @@
 <div id="home-page-wrapper">
-  <app-posts></app-posts>
+
+  <div class="posts-container"
+       *ngIf="!loading">
+    <div class="latest-post">
+      <a routerLink="/posts/{{ posts[0].id }}">
+        <app-post-card [post]="posts[0]"></app-post-card>
+      </a>
+    </div>
+
+    <ul class="posts">
+      <li class="post"
+          *ngFor="let post of posts | slice:1">
+        <a routerLink='/posts/{{ post.id }}'>
+          <app-post-card [post]="post"></app-post-card>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <ng-template #loadingSpinner>Loading...</ng-template>
+
   <app-back-to-top-button></app-back-to-top-button>
+
 </div>
