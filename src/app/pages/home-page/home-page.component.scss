@@ -8,12 +8,18 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 min(10px, 10%);
+  padding: 0 min(20px, 2.5%);
   margin-top: 20px;
 
   app-post-card {
-    border-radius: 5px;
+    position: relative;
     overflow: hidden;
+    border-radius: 5px;
+    box-shadow:
+      // 0 -2px 2px rgba(black, 0.4),
+      2px 0 2px rgba(black, 0.2),
+      0 4px 2px rgba(black, 0.2),
+      -2px 0 2px rgba(black, 0.2);
   }
 
   .latest-post,
@@ -48,7 +54,7 @@
 
 app-back-to-top-button {
   position: fixed;
-  right: 2%;
+  right: min(20px, 2.5%);
   bottom: 10%;
   width: 50px;
   height: 50px;

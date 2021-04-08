@@ -2,6 +2,7 @@
 
   <div class="posts-container"
        *ngIf="!loading">
+
     <div class="latest-post">
       <a routerLink="/posts/{{ posts[0].id }}">
         <app-post-card [post]="posts[0]"></app-post-card>
@@ -16,6 +17,7 @@
         </a>
       </li>
     </ul>
+
   </div>
   <ng-template #loadingSpinner>Loading...</ng-template>
 
